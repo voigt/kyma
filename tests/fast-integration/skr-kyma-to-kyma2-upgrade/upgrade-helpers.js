@@ -27,7 +27,7 @@ async function kcpVersion () {
 };
 
 async function kcpLogin (kcpconfigPath, kcpUser, kcpPassword) {
-    let kcpVersion = await kcpVersion()
+    let version = await kcpVersion()
     debug(`Using KCP-CLI Version: ${version}`)
 
     debug(`Running kcpLogin...`)
@@ -46,7 +46,7 @@ async function kcpLogin (kcpconfigPath, kcpUser, kcpPassword) {
         throw new Error(`failed "${dummycmd}": ${error.stderr}`);
     }
 };
-
+kcpLogin("dev.yaml", "sap.cp.xf.kyma.test@sap.com", "XO4RStMsba9eUE5l")
 async function kcpUpgrade (kcpconfigPath, subaccount, kymaUpgradeVersion) {
     debug(`Running kymaUpgrade...`)
     let args = []
